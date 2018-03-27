@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+/*Routing for About Page : GET*/
+Route::get('/about','PagesController@about')-> name('about');
 
 /*Routing for Contact Page : GET*/
 Route::get('/contact','PagesController@contact')-> name('contact');

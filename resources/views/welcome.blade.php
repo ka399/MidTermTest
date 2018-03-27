@@ -15,13 +15,12 @@
                 @if (Route::has('login'))
 
                     <div class="navbar navbar-expand-md navbar-light navbar-laravel">
+                        <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
                         @auth
-
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
                         @else
-                            <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
+
                             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @endauth
@@ -35,7 +34,7 @@
 
 
 @include('includes.header')
-<div class="container" mb-10 style="font-family: sans-serif;">
+<div class="container" mb-10 style="font-family:KacstLetter;">
     <H1>Certified Pre-Owned Cars! Honda, Toyota and Ford!</H1>
 
     <h5>We will help you find the right Certified Pre-Owned car for you. Please explore our site and reach us @ 2038327980</h5>
