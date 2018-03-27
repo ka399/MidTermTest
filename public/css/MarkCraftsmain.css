@@ -1,0 +1,26 @@
+
+.jumbotron
+{
+    margin-top: 0px;
+    background-image:url('http://autowpaper.com/images/toyota-avalon-2014-2.jpg');
+    background-size: cover;
+    color: whitesmoke;
+    height: 350px;
+}
+
+.imgdist
+{
+    display: flex;
+    justify-content:space-between;
+}
+
+.links > a {
+    font-family: "serif";
+    color: gray;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: none;
+}

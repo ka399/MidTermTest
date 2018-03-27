@@ -1,95 +1,78 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@include('includes.head')
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+<body>
 
-        <title>Laravel</title>
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                @if (Route::has('login'))
 
-            .full-height {
-                height: 100vh;
-            }
+                    <div class="navbar navbar-expand-md navbar-light navbar-laravel">
+                        @auth
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                        @else
+                            <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                        @endauth
+                    </div>
 
-            .position-ref {
-                position: relative;
-            }
+                @endif
+            </ul>
+        </div>
+    </div>
+</nav>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+@include('includes.header')
+<div class="container" mb-10 style="font-family: sans-serif;">
+    <H1>Certified Pre-Owned Cars! Honda, Toyota and Ford!</H1>
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+    <h5>We will help you find the right Certified Pre-Owned car for you. Please explore our site and reach us @ 2038327980</h5>
+    <br/>
+    <br/>
+    <div class="carouselsize">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <h3>Mark Automobiles Photo Gallery</h3>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100"
+                         src="https://www.ford.com/content/dam/vdm_ford/live/en_us/ford/nameplate/ecosport/2018/collections/_360/Canyon%20Ridge/ecosport_17_canyon_ridge_1.jpg"
+                         alt="First slide">
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="carousel-item">
+                    <img class="d-block w-100"
+                         src="https://di-uploads-pod3.dealerinspire.com/westmichiganhonda/uploads/2017/07/01-2018-Honda-Fit-Exterior-Front-Angle-Passenger-Side-1024x516.jpg"
+                         alt="Second slide">
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="carousel-item">
+                    <img class="d-block w-100"
+                         src="https://icdn-1.motor1.com/images/mgl/QVV6Z/s3/2018-toyota-hilux-facelift.jpg"
+                         alt="Third slide">
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-    </body>
+        @include('includes.footer')
+    </div>
+</div>
+
+</body>
 </html>
