@@ -44,5 +44,18 @@ class RequestResponseTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /**
+     * Test 4.  Feature test to check if the contact page returns a 200 status code.
+     *
+     * @return void
+     */
+    public function testContactPage()
+    {
+        $response = $this->get('/contact');
+
+        $response->assertStatus(200);
+    }
+
+
 
 }
