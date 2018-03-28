@@ -32,5 +32,17 @@ class RequestResponseTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /**
+     * Test 3.  Feature test to check if the about page returns a 200 status code.
+     *
+     * @return void
+     */
+    public function testAboutPage()
+    {
+        $response = $this->get('/about');
+
+        $response->assertStatus(200);
+    }
+
 
 }
