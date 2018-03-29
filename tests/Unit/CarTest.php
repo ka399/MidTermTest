@@ -90,7 +90,7 @@ class CarTest extends TestCase
      * Faker->Year (seeded by database), though the column is of integer data type, comes out as string and assertion gives error.
      * e.g.  Failed asserting that '1993' is of type "integer".
      * We can use ctype_digit which checks if all of the characters in the provided string, text, are numerical (digits).
-     * Ctype_digit checks return true only for integer and false for double, bloat, string, any other non-integer data type.
+     * ctype_digit checks return true only for integer and false for double, bloat, string, any other non-integer data type.
      *
      */
     public function testCarYearAsInteger()
@@ -124,5 +124,23 @@ class CarTest extends TestCase
         //test if the make of the car is present in the array
         $this->assertContains(strtoupper($make), $array);
     }
+
+    /**
+     * Test 15.  Unit test to check if a car's model is string
+     *
+     * @return void
+     */
+    public function testCarsModel()
+    {
+        //Pick any random car record
+        $car = Car::inrandomorder()->first();
+
+        //get the model
+        $model = $car->model;
+
+        //test if model is string data type.
+        $this->assertInternalType('string', $model);
+    }
+
 
 }
