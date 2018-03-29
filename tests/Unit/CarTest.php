@@ -70,4 +70,18 @@ class CarTest extends TestCase
         $this->assertTrue($car->delete());
     }
 
+    /**
+     * Test 12.  Unit test to count the number of records(cars) inserted by the database seed.  i.e. $carCount = 50
+     *
+     * @return void
+     */
+    public function testCarsCollectionCount()
+    {
+        //get the car collection (all records from cars table)
+        $carsCollection = Car::All();
+
+        //test if there are 50 records stored in cars table inserted by seeder
+        $this->assertCount(50,$carsCollection);
+    }
+
 }
