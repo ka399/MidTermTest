@@ -31,7 +31,7 @@ class UserTest extends TestCase
         $this->assertTrue($user->save());
     }
 
-    /**
+        /**
      * Test 6.  Unit test to update the name of a user in the database to Steve Smith.
      * I am going to update the recently inserted user : Kashish Agarwal (ka399@njit.edu)
      * @return void
@@ -48,7 +48,42 @@ class UserTest extends TestCase
         //test if the new user is saved in the database
         $this->assertTrue($user->save());
     }
+
+    /**
+     * Test 7.  Unit test to delete the user from the users table.
+     * I am going to delete the recently inserted & then updated user : Steve Smith (ka399@njit.edu)
+     * @return void
+     */
+    public function testDeleteUser()
+    {
+        //get the user instance for a user which needs to be deleted
+        $user = User::where('email', 'ka399@njit.edu')->first();
+
+        //test if the new user is saved in the database
+        $this->assertTrue($user->delete());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
