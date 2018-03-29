@@ -41,9 +41,9 @@ class CarTest extends TestCase
     {
         //get the instance for a car whose name has to be updated
         $car = Car::where('make', 'Honda')
-                  ->where('model', 'Accord')
-                  ->where('year', 2011)
-                   ->first();
+            ->where('model', 'Accord')
+            ->where('year', 2011)
+            ->first();
 
 
         //Update the name to 'Steve Smith'
@@ -52,4 +52,22 @@ class CarTest extends TestCase
         //test if the new user is saved in the database
         $this->assertTrue($car->save());
     }
+
+    /**
+     * Test 11.  Unit test to delete a car record from the cars table.
+     * I am going to delete the recently inserted & then updated car record : Honda Accord 2000
+     * @return void
+     */
+    public function testDeleteCar()
+    {
+        //get the user instance for a user which needs to be deleted
+        $car = Car::where('make', 'Honda')
+            ->where('model', 'Accord')
+            ->where('year', 2000)
+            ->first();
+
+        //test if the car record  is deleted in the database
+        $this->assertTrue($car->delete());
+    }
+
 }
