@@ -105,5 +105,24 @@ class CarTest extends TestCase
         $this->assertTrue(ctype_digit($stringYear));
     }
 
+    /**
+     * Test 14.  Unit test to check if a car's make is either ford / honda / toyota
+     *
+     * @return void
+     */
+    public function testCarsMake()
+    {
+        //Pick any random car record
+        $car = Car::inrandomorder()->first();
+
+        //Array to hold allowed values for Make
+        $array = array('FORD', 'HONDA', 'TOYOTA');
+
+        //Pick the make of the car
+        $make = $car->make;
+
+        //test if the make of the car is present in the array
+        $this->assertContains(strtoupper($make), $array);
+    }
 
 }
