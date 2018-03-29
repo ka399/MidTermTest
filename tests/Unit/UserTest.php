@@ -62,8 +62,21 @@ class UserTest extends TestCase
         //test if the new user is saved in the database
         $this->assertTrue($user->delete());
     }
-}
 
+    /**
+     * Test 8.  Unit test to count the number of records(users) inserted by the database seed.  i.e. $userCount = 50
+     *
+     * @return void
+     */
+    public function testUsersCollectionCount()
+    {
+        //get the user collection (all records from users table)
+        $usersCollection = User::All();
+
+        //test if there are 50 records stored in users table.
+        $this->assertCount(50,$usersCollection);
+    }
+}
 
 
 
