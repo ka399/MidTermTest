@@ -9,7 +9,7 @@ use App\User;
 class UserTest extends TestCase
 {
     /**
-     * Test 4.  Unit test to insert new user to Users Table in the database.
+     * Test 5.  Unit test to insert new user to Users Table in the database.
      * New User Name : Kashish Agarwal (ka399@njit.edu)
      * @return void
      */
@@ -30,4 +30,30 @@ class UserTest extends TestCase
         //test if the new user is saved in the database
         $this->assertTrue($user->save());
     }
+
+    /**
+     * Test 6.  Unit test to update the name of a user in the database to Steve Smith.
+     * I am going to update the recently inserted user : Kashish Agarwal (ka399@njit.edu)
+     * @return void
+     */
+    public function testUpdateUser()
+    {
+        //get the user instance for a user whose name has to be updated
+        $user = User::where('email', 'ka399@njit.edu')->first();
+
+
+        //Update the name to 'Steve Smith'
+        $user->name= 'Steve Smith';
+
+        //test if the new user is saved in the database
+        $this->assertTrue($user->save());
+    }
 }
+
+
+
+
+
+
+
+
